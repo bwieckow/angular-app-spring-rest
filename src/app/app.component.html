@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row" [hidden]="isLoggedIn">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <input type="text" id="name" [(ngModel)]="user.name" required/>
+      <br>
+      Name: {{ user.name }}
+      <br>
+      <button class="btn btn-primary" (click)="login(name)">Log In</button>
+      <hr>
+    </div>
+  </div>
+  <div class="row" [hidden]="!isLoggedIn">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <message-box (messageEvent)="messageEvent($event)"></message-box>
+    </div>
+  </div>
+</div>

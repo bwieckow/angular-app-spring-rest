@@ -1,0 +1,10 @@
+<div>
+  <div class="message-box">
+    <div *ngFor="let msg of messages | async">
+      {{ msg.text }}
+    </div>
+    <input type="text" id="inputText" [(ngModel)]="message.text" required/>
+    <button class="btn btn-primary" (click)="sendMessage(message.text)">Send Message</button>
+  </div>
+
+</div>
