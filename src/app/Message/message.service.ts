@@ -2,7 +2,6 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Message} from "./message"
 import {Observable} from "rxjs";
-import {HttpParams} from "@angular/common/http";
 
 @Injectable()
 export class MessageService {
@@ -19,9 +18,7 @@ export class MessageService {
     return this.httpClient.post('http://localhost:8090/message/sendJSON', message)
       .subscribe(
         data => {
-          console.log("data");
-          console.log(data);
-          this.getAllMessages();
+
         },
         err => {
           console.log("err");
@@ -29,9 +26,5 @@ export class MessageService {
           this.getAllMessages();
         }
       )
-  }
-
-  getVehicles(){
-    return Observable.interval(6000).map(i=> [{name: 'car 1'},{name: 'car 2'}])
   }
 }
